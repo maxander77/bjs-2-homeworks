@@ -14,9 +14,9 @@ function getArrayParams(...arr) {
     sum += element;
   }
 
-  const avg = sum / arr.length;
+  const avg = Number((sum / arr.length).toFixed(2));
 
-  return { min: min, max: max, avg: avg.toFixed(2) };
+  return { min: min, max: max, avg: avg };
 
 }
 
@@ -42,6 +42,10 @@ function summElementsWorker(...arr) {
 }
 
 function differenceMaxMinWorker(...arr) {
+  if (arr.length === 0){
+    return 0;
+  }
+
   let max = -Infinity;
   let min = Infinity;
 
@@ -51,10 +55,10 @@ function differenceMaxMinWorker(...arr) {
       max = element;
     }
     if (element < min){
-      element = min;
+      min = element;
     }
 
-    return element;
+    return max - min;
   }
 }
 
