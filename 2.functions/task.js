@@ -29,7 +29,7 @@ console.log(result3);
 
 
 
-// tusk 2
+// task 2
 
 function summElementsWorker(...arr) {
   let sum = 0;
@@ -57,9 +57,9 @@ function differenceMaxMinWorker(...arr) {
     if (element < min){
       min = element;
     }
-
-    return max - min;
   }
+
+  return max - min;
 }
 
 function differenceEvenOddWorker(...arr) {
@@ -112,7 +112,7 @@ function averageEvenElementsWorker(...arr) {
 // console.log(averageEvenElementsWorker(1, 2, 3, 4, 5, 6, 7, 8, 9)); 
 // console.log(averageEvenElementsWorker(15, 97, 85, 64, 67, 10, 69, 40, 15, 35)); 
 
-// tusk 3
+// task 3
 
 function makeWork (arrOfArr, func) {
   let maxWorkerReult = -Infinity;
