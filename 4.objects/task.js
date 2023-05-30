@@ -10,7 +10,7 @@ Student.prototype.setSubject = function (subjectName) {
 }
 
 Student.prototype.addMarks = function (...marks) {
-  if (this.exclude || this.marks){
+  if (this.marks.length > 0){
     return;
   }
 
@@ -18,7 +18,7 @@ Student.prototype.addMarks = function (...marks) {
 }
 
 Student.prototype.getAverage = function () {
-  if (!this.marks || this.marks.length === 0 || this.exclude){
+  if (!this.marks || this.marks.length === 0){
     return 0;
   }
 
