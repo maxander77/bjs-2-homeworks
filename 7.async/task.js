@@ -6,16 +6,15 @@ class AlarmClock {
 
   addClock(time, callback) {
     if (!time || !callback) {
-      console.error("Отсутствуют обязательные аргументы");
-      return;
+      throw new Error("Отсутствуют обязательные аргументы");
     }
 
-    for (const alarm of this.alarmCollection) {
-      if (alarm.time === time) {
+
+    const hasAlarm = this.alarmCollection.some(alarm => alarm.time === time);
+      if (hasAlarm) {
         console.warn("Уже присутствует звонок на это же время");
-        return;
       }
-    }
+    
 
     this.alarmCollection.push({
       time: time,
@@ -46,10 +45,10 @@ class AlarmClock {
 
       this.alarmCollection.forEach(alarm => {
         if (alarm.time === currentTime && alarm.canCall) {
-          allarm.canCall = false;
+          alarm.canCall = false;
           alarm.callback();
         }
-      })
+      });
     }, 1000); 
   }
 
@@ -65,7 +64,7 @@ class AlarmClock {
   }
 
   clearAlarms() {
-    this.stop();
     this.alarmCollection = [];
+    this.stop();
   }
 }
